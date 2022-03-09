@@ -1,39 +1,58 @@
 function processData(input) {
 
-    const splittedInput = input.split('\n');
-    const splittedInputPop = splittedInput.pop();
-    const senhaCorreta = splittedInput[0];
-    const senhaErrada = splittedInput[1];
+    const splittedInput = input.trim().split('\n');
 
-    //console.log(splittedInput);
-    //console.log(senhaCorreta)
-    //console.log(senhaErrada)
+    const senha = splittedInput[0];
+    const senhaDigitada = splittedInput[1];
 
-    let guardaSequencia = [];
+    // console.log(splittedInput);
+    // console.log(senhaCorreta)
+    // console.log(senhaDigitada)
+
+    let guardaSequencia = 0;
+
+    let contador = 0;
+
+    //a merda ta aqui
+    // for (let letraDaSenha of senha) {
+
+    //     for (let letraDigitada of senhaDigitada) {
+
+    //         if (letraDaSenha === letraDigitada) {
+    //             contador++
+    //         }
+    //     }
 
 
-    for (let letra of senhaErrada) {
-        if (senhaCorreta.includes(letra)) {
+    for (let letra of senha) {
+        if (senhaDigitada.includes(letra)) {
 
-            if (guardaSequencia.length < senhaCorreta.length) {
-                guardaSequencia.push(letra);
+            if (guardaSequencia < senha.length) {
+                guardaSequencia++
                 continue;
             }
         }
     }
 
-    guardaSequencia = guardaSequencia.join('');
+    //}
 
-    if (senhaCorreta === guardaSequencia) {
+    // if (contador >= senha.length) {
+    //     console.log('SIM');
+    // } else {
+    //     console.log('NAO');
+    // }
+
+    //guardaSequencia = guardaSequencia.join('');
+
+    if (senha.length === guardaSequencia) {
         console.log('SIM');
     } else {
         console.log('NAO');
     }
 
-    //console.log(guardaSequencia)
+    console.log(guardaSequencia)
 
 }
 
-const input = 'cubos\n3333888cxxddddubdddddo***ssx22obddcubosuddddcuuuboooosssxxxxc\n';
 
-processData(input);
+processData('Cubos\nsobuC\n')
